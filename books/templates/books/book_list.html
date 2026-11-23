@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>Book List</h1>
+    <a href="{% url 'book_add' %}">Add book</a>
     <ul>
         {% for book in books %}
             <li>{{ book.title }} - {{ book.author.name }} ({{ book.year|default:"-" }}) - {{ book.price|default:"-" }}</li>
