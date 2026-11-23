@@ -27,10 +27,12 @@ class BookCreateView(View):
 class BookUpdateView(View):
     def get(self, request, pk):
         book = get_object_or_404(Book, pk=pk)
+        
         form = BookForm(instance=book)
         return render(request, "books/book_form.html", {"form": form})
     def post(self, request, pk):
         book = get_object_or_404(Book, pk=pk)
+        
         form = BookForm(request.POST, instance=book)
         if form.is_valid():
             form.save()
